@@ -5,3 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+puts "Gerando os tipos (Kinds)..."
+    Kind.create!([{description: "Amigo"},
+                  {description: "Contato"},
+                  {description: "Comercial"}])
+puts "Kinds finalizado - [OK]"
+
+
+puts "Gerando os Contatos (Contacts)..."
+    10.times do |i|
+        Contact.create!(
+            name: Faker::Name.name,
+            email: Faker::Internet.email,
+            kind: Kind.all.sample,
+            rmk: Faker::LordOfTheRings.character)
+    end
+puts "Contacts finalizados - [OK]"
